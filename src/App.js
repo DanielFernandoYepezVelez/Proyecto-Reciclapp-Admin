@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+//Corresponde al Dashboard
+import Dashboard from './screens/Dashboard';
+import ConfirmationDate from './screens/ConfirmationDate';
+import Users from './screens/Users';
+import Signin from './screens/Signin';
+import Collector from './screens/Collector';
+import Appointment from "./screens/Appointment";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+      {/* //Corresponde al Dashboard */}
+        <Route exact path="/Home" component={Signin}/>
+        <Route exact path="/Collector" component={Collector}/>
+        <Route exact path="/Dashboard" component={Dashboard}/>
+        <Route exact path="/Users" component={Users}/>
+        <Route exact path="/ConfirmationDate" component={ConfirmationDate}/>
+        <Route exact path="/Appointment" component={Appointment}/>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
